@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\SearchService;
 use App\Validators\SearchValidator;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class HouseController extends Controller
 {
@@ -25,7 +26,7 @@ class HouseController extends Controller
                 'success' => false,
                 'message' => $this->validator->getErrorMessage(),
                 'data' => [],
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         return $this->service->search($request);
