@@ -25,7 +25,7 @@ class HouseController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => $this->validator->getErrorMessage(),
-                'data' => [],
+                'houses' => [],
             ], Response::HTTP_BAD_REQUEST);
         }
 
