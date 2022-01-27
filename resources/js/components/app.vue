@@ -73,6 +73,12 @@
         </div>
 
         <hr v-if="houses.length" />
+
+        <div v-if="loading" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <table v-if="houses.length" class="table">
             <thead>
                 <th scope="col">Name</th>
@@ -101,6 +107,8 @@ export default {
     },
     methods: {
         search(e, reset = false) {
+            this.loading = true;
+            this.houses = [];
             if (typeof e != 'undefined'){
                 e.preventDefault();
             }
@@ -134,6 +142,9 @@ export default {
                         output.errMess = data.message;
                     }
                 })
+                .finally(function (){
+                    output.loading = null;
+                });
         },
 
         reset(e) {
@@ -148,6 +159,7 @@ export default {
             errMess: null,
             nothing_found: false,
             houses: [],
+            loading: null,
         };
     },
 };
