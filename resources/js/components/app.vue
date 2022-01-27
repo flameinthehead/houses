@@ -2,7 +2,7 @@
     <div>
         <form ref="form" v-on:submit="search">
             <input name="name" v-model="name" placeholder="Name" />
-            <input name="price_form" v-model="price_from" placeholder="Price from" />
+            <input name="price_from" v-model="price_from" placeholder="Price from" />
             <input name="price_to" v-model="price_to" placeholder="Price to" /><br />
             <input name="bedrooms" v-model="bedrooms" placeholder="Bedrooms" />
             <input name="bathrooms" v-model="bathrooms" placeholder="Bathrooms" />
