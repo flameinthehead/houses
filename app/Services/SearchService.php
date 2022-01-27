@@ -36,7 +36,7 @@ class SearchService
         return response()->json([
             'success' => true,
             'message' => null,
-            'data' => $builder->get()->all(),
+            'houses' => $builder->get()->all(),
         ]);
     }
 }
