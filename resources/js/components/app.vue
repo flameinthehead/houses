@@ -125,7 +125,7 @@ export default {
             output.nothing_found = false;
             output.errMess = null;
             axios
-                .get("/houses", {params: data})
+                .get("/api/houses", {params: data})
                 .then(function(response) {
                     var data = response.data;
                     output.success = data.success;
@@ -139,7 +139,7 @@ export default {
                     output.houses = [];
                     if (error.response && error.response.data) {
                         var data = error.response.data;
-                        output.errMess = data.message;
+                        output.errMess = data.errors;
                     }
                 })
                 .finally(function (){
